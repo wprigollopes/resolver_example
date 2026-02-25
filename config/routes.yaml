@@ -9,3 +9,8 @@
 
 controllers:
     resource: routing.controllers
+
+users_index:
+    path: /users
+    methods: [GET]
+    controller: App\Controller\UsersController::index
