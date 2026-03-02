@@ -3,6 +3,36 @@
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "teamdotblue/psysh-bundle",
+                "version": "4.9.0",
+                "type": "symfony-bundle",
+                "source": {
+                    "url": "https://github.com/teamdotblue/PsyshBundle.git",
+                    "type": "git",
+                    "reference": "v4.9.0"
+                },
+                "require": {
+                    "php": ">=8.2",
+                    "psy/psysh": "^0.11 || ^0.12",
+                    "symfony/error-handler": "^6.4 || ^7.0 || ^8.0",
+                    "symfony/expression-language": "^6.4 || ^7.0 || ^8.0",
+                    "symfony/framework-bundle": "^6.4 || ^7.0 || ^8.0"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "TeamDotBlue\\PsyshBundle\\": "src"
+                    },
+                    "files": [
+                        "src/psysh.php"
+                    ]
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=8.4",
         "ext-ctype": "*",
@@ -104,6 +134,7 @@
         "symfony/debug-bundle": "8.0.*",
         "symfony/maker-bundle": "^1.0",
         "symfony/stopwatch": "8.0.*",
-        "symfony/web-profiler-bundle": "8.0.*"
+        "symfony/web-profiler-bundle": "8.0.*",
+        "teamdotblue/psysh-bundle": "^4.9"
     }
 }

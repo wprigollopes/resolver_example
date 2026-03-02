@@ -1455,6 +1455,42 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     generate_final_classes?: bool|Param, // Default: true
  *     generate_final_entities?: bool|Param, // Default: false
  * }
+ * @psalm-type PsyshConfig = array{
+ *     variables?: array<string, mixed>,
+ *     baseDir?: scalar|Param|null, // Set the base directory for psysh configuration // Default: "%kernel.cache_dir%/psysh"
+ *     config?: array{ // Define the configuration for Psy\Configuration
+ *         codeCleaner?: mixed, // Set the value for `Psy\Configuration::setCodeCleaner`
+ *         colorMode?: mixed, // Set the value for `Psy\Configuration::setColorMode`
+ *         configDir?: mixed, // Set the value for `Psy\Configuration::setConfigDir` // Default: "%psysh.base_dir%/config"
+ *         dataDir?: mixed, // Set the value for `Psy\Configuration::setDataDir` // Default: "%psysh.base_dir%/data"
+ *         defaultIncludes?: mixed, // Set the value for `Psy\Configuration::setDefaultIncludes`
+ *         eraseDuplicates?: mixed, // Set the value for `Psy\Configuration::setEraseDuplicates`
+ *         errorLoggingLevel?: mixed, // Set the value for `Psy\Configuration::setErrorLoggingLevel`
+ *         forceArrayIndexes?: mixed, // Set the value for `Psy\Configuration::setForceArrayIndexes`
+ *         formatterStyles?: mixed, // Set the value for `Psy\Configuration::setFormatterStyles`
+ *         historyFile?: mixed, // Set the value for `Psy\Configuration::setHistoryFile` // Default: "%psysh.base_dir%/history"
+ *         historySize?: mixed, // Set the value for `Psy\Configuration::setHistorySize`
+ *         interactiveMode?: mixed, // Set the value for `Psy\Configuration::setInteractiveMode`
+ *         manualDbFile?: mixed, // Set the value for `Psy\Configuration::setManualDbFile`
+ *         pager?: mixed, // Set the value for `Psy\Configuration::setPager`
+ *         prompt?: mixed, // Set the value for `Psy\Configuration::setPrompt`
+ *         rawOutput?: mixed, // Set the value for `Psy\Configuration::setRawOutput`
+ *         requireSemicolons?: mixed, // Set the value for `Psy\Configuration::setRequireSemicolons`
+ *         runtimeDir?: mixed, // Set the value for `Psy\Configuration::setRuntimeDir` // Default: "%psysh.base_dir%/runtime"
+ *         startupMessage?: mixed, // Set the value for `Psy\Configuration::setStartupMessage`
+ *         strictTypes?: mixed, // Set the value for `Psy\Configuration::setStrictTypes`
+ *         theme?: mixed, // Set the value for `Psy\Configuration::setTheme`
+ *         updateCheck?: mixed, // Set the value for `Psy\Configuration::setUpdateCheck`
+ *         useBracketedPaste?: mixed, // Set the value for `Psy\Configuration::setUseBracketedPaste`
+ *         usePcntl?: mixed, // Set the value for `Psy\Configuration::setUsePcntl`
+ *         useReadline?: mixed, // Set the value for `Psy\Configuration::setUseReadline`
+ *         useTabCompletion?: mixed, // Set the value for `Psy\Configuration::setUseTabCompletion`
+ *         useUnicode?: mixed, // Set the value for `Psy\Configuration::setUseUnicode`
+ *         verbosity?: mixed, // Set the value for `Psy\Configuration::setVerbosity`
+ *         warnOnMultipleConfigs?: mixed, // Set the value for `Psy\Configuration::setWarnOnMultipleConfigs`
+ *         yolo?: mixed, // Set the value for `Psy\Configuration::setYolo`
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1484,6 +1520,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
+ *         psysh?: PsyshConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1513,6 +1550,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
+ *         psysh?: PsyshConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
